@@ -1,0 +1,246 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://etzhayyim.com/ns/actor-manifest"
+  ],
+  "@type": "ActorManifest",
+  "id": "did:web:etzhayyim.com:igata",
+  "name": "igata",
+  "displayName": "鋳型 — Megacasting / HPDC",
+  "displayNameJa": "鋳型",
+  "displayNameEn": "Igata",
+  "description": "High-pressure die-casting (HPDC) / megacasting actor. religious-corp first-party large-aluminum-structure manufacturing supplier for wadachi (vehicle body), tatekata (construction structural), watatsumi (submersible reinforcement), and silicon Wave 2 (fab equipment frame). HPDC clamping force ≤6000 ton R0..R3; giga press class (≥7500 ton) deferred to post-R3 + Council Lv6+ supermajority (N1).",
+  "descriptionJa": "高圧ダイカスト(HPDC)/メガキャスティング actor。religious-corp自前の大型アルミ構造部品製造として wadachi(車両body)/tatekata(建築構造)/watatsumi(潜水艇補強)/silicon Wave 2(fab機材frame)へ供給。R0..R3 はHPDC clamping force ≤6000 ton、giga press class (≥7500 ton) は post-R3 + Council Lv6+ supermajority へ deferral。",
+  "methodologySource": {
+    "type": "YouTube documentary",
+    "id": "y0oF2UirEMk",
+    "title": "How They Build From Scratch the Giga Press Used by Tesla",
+    "subject": "IDRA Group OL 9000 CS class HPDC machine build process",
+    "adoption": "manufacturing methodology adopted",
+    "rejection": "military / aerospace structural application explicitly rejected per Charter Rider §2(a)"
+  },
+  "adr": {
+    "master": "etzhayyim:adr:2605261200",
+    "r0": "etzhayyim:adr:2605261200",
+    "r1": "etzhayyim:adr:2605261215",
+    "r2": "etzhayyim:adr:2605261230",
+    "r3": "etzhayyim:adr:2605261245"
+  },
+  "tier": "Tier-B",
+  "siblingActors": [
+    "did:web:etzhayyim.com:kuni-umi",
+    "did:web:etzhayyim.com:wadachi",
+    "did:web:etzhayyim.com:tatekata",
+    "did:web:etzhayyim.com:watatsumi",
+    "did:web:etzhayyim.com:yakushi",
+    "did:web:etzhayyim.com:silicon"
+  ],
+  "scope": {
+    "phase": "R0 scaffold",
+    "scopeBoundary": "HPDC ≤6000 ton clamping force, Al-Si alloy, single-piece ≤50 kg (R3 cap)",
+    "exclusions": [
+      "giga press class (≥7500 ton) — N1 post-R3 deferral",
+      "military vehicle / aerospace fuselage / armor — §2(a) NEVER",
+      "firearms / ammunition structural — §2(a) NEVER",
+      "nuclear containment Class 1/2/3 — radiological NEVER",
+      "hazmat pressure vessel — kuni-umi-S6 carve-out",
+      "proprietary closed alloy — §2(e) NEVER",
+      "human-occupied vehicle structural cert (R0..R2; R3 Council audit only)",
+      "mass-market consumer external sale (SBT↔SBT internal only)",
+      "fossil-fired melting — G9 NEVER",
+      "state defense subsidy / military procurement — §2(a)+§2(i) NEVER"
+    ]
+  },
+  "roboticsClasses": [
+    "Otete heat-resistant (kuni-umi inherited)",
+    "Mimi dimensional + X-ray CT (kuni-umi inherited; R2+ CT subsystem)",
+    "Hitogata class-A clean (kuni-umi inherited; R2+ HT loading)",
+    "Funamori marine (silicon Wave 2 inherited; Al ingot transport)",
+    "Hibachi 火鉢 (igata-native, R2+ high-T die-spray robot, R2 ADR designs)",
+    "Tatara 踏鞴 (igata-native, R2+ melt-furnace tending + degassing, echoes silicon fuigo 鞴)"
+  ],
+  "cells": [
+    {
+      "name": "igata_alloy_melt",
+      "module": "igata.cells.igata_alloy_melt",
+      "murukumoNode": "naphtali",
+      "phase": "melt"
+    },
+    {
+      "name": "igata_die_preparation",
+      "module": "igata.cells.igata_die_preparation",
+      "murukumoNode": "zebulun",
+      "phase": "die-prep"
+    },
+    {
+      "name": "igata_shot_injection",
+      "module": "igata.cells.igata_shot_injection",
+      "murukumoNode": "joseph",
+      "phase": "shot"
+    },
+    {
+      "name": "igata_solidification_eject",
+      "module": "igata.cells.igata_solidification_eject",
+      "murukumoNode": "joseph",
+      "phase": "solidify"
+    },
+    {
+      "name": "igata_post_cast_qc",
+      "module": "igata.cells.igata_post_cast_qc",
+      "murukumoNode": "levi",
+      "phase": "qc"
+    },
+    {
+      "name": "igata_trim_machining",
+      "module": "igata.cells.igata_trim_machining",
+      "murukumoNode": "simeon",
+      "phase": "trim"
+    },
+    {
+      "name": "igata_heat_treatment",
+      "module": "igata.cells.igata_heat_treatment",
+      "murukumoNode": "dan",
+      "phase": "ht"
+    },
+    {
+      "name": "igata_part_attestation",
+      "module": "igata.cells.igata_part_attestation",
+      "murukumoNode": "levi",
+      "phase": "attest"
+    }
+  ],
+  "lexiconNamespaces": [
+    "com.etzhayyim.igata.alloyAttestation",
+    "com.etzhayyim.igata.dieAttestation",
+    "com.etzhayyim.igata.castShotRecord",
+    "com.etzhayyim.igata.partAttestation",
+    "com.etzhayyim.igata.silenIgataReview"
+  ],
+  "constitutionalGates": {
+    "description": "14 immutable gates per ADR-2605261200. Changes require Council Lv6+ supermajority + new ADR.",
+    "gates": {
+      "G1": "HPDC clamping force ≤6000 ton in R0..R3; giga press class (≥7500 ton) = N1 post-R3 deferral",
+      "G2": "Aluminum-silicon alloy only; composition fully disclosed (5-element baseline + trace改質剤). No proprietary closed alloys.",
+      "G3": "All process parameters open-source Apache 2.0 + Charter Rider: injection profile, die thermal management, gate velocity, vacuum-assist pressure",
+      "G4": "Witness quorum ≥2 robot signers (Mimi metrology + Otete handling) per partAttestation; Ed25519 DID-bound",
+      "G5": "Bilingual (JA + EN) SOPs / safety / emergency procedures for all melt + injection + post-process steps",
+      "G6": "Charter Rider §2(a) clearance — no military vehicle / aerospace fuselage / armor / firearms structural parts",
+      "G7": "Alloy 5-element baseline (Al + Si 6-12% + Mg ≤0.5% + Mn ≤0.7% + Fe ≤1.0%) + trace改質剤 (Sr ≤0.05% + Ti ≤0.2%). No Be / Pb / Cd / Hg / radioactive. No OPCW Schedule compounds in raw materials or die release agents. G7=NONE wave (yakushi Wave 1c parity)",
+      "G8": "Shot replay determinism — full injection profile @ 1 kHz (position + velocity + pressure + temp) + WASM state-machine sealed",
+      "G9": "Induction + electric resistance melting only. No fossil-fired furnace. Energy budget ≤4 kWh/kg cast R3",
+      "G10": "Aluminum scrap recovery ≥95% (sprue + runner + reject + chip + die-spray residue) tracked in partAttestation.materialBalance",
+      "G11": "Personnel vetting: Adherent SBT + 危険物取扱主任者-equivalent for >500 ton operations; operator DID bound to per-shot record",
+      "G12": "Production rate ≤1 large part / 90 sec R3 (Wellbecoming + anti-Taylorism, yakushi G11 + wadachi G11 parity)",
+      "G13": "Murakumo mesh placement declared 30 days prior + 1 km community feedback period (HPDC noise + vibration)",
+      "G14": "partAttestation includes full lineage CIDs (alloy + die + shot + QC + HT + machining) + IPFS-pinned final part photo + material balance log"
+    }
+  },
+  "nonGoals": {
+    "description": "10 explicitly excluded scopes (deferred or constitutional NEVER)",
+    "goals": {
+      "N1": "Giga press class (≥7500 ton clamping force) — post-R3 + Council Lv6+ supermajority (silicon EUV parity, ADR-2605242545)",
+      "N2": "Military vehicle structural / aerospace fuselage / armor plate / hull plating — NEVER (Charter Rider §2(a) constitutional)",
+      "N3": "Firearms / ammunition / shell casing / projectile body structural — NEVER (§2(a))",
+      "N4": "Nuclear containment Class 1/2/3 RPV / primary loop pressure boundary — NEVER (radiological + §2(c))",
+      "N5": "Hazmat pressure-vessel structural (LPG/CNG/H₂/chemical reactor) — kuni-umi-S6 chemistry carve-out, ADR separate",
+      "N6": "Proprietary alloy 'secret sauce' composition — NEVER (G2 + G3 constitutional, §2(e))",
+      "N7": "Human-occupied vehicle structural certification (R0..R2 prohibited; R3 = Council Lv6+ audit only)",
+      "N8": "Mass-market consumer for external commercial sale — SBT↔SBT internal carve-out only (ADR-2605192115 §3)",
+      "N9": "Fossil-fired melting (gas reverberatory, oil burner) — NEVER (G9 invariant)",
+      "N10": "State defense budget subsidy / military procurement contract — NEVER (§2(a) + §2(i) constitutional)"
+    }
+  },
+  "roadmap": [
+    {
+      "phase": "R0",
+      "date": "2026-05-26",
+      "scope": "Scaffold only. No live HPDC. 8 cells import-time RuntimeError.",
+      "murukumoFleet": "No deployment",
+      "gate": "ADR-2605261200 (proposed)"
+    },
+    {
+      "phase": "R1",
+      "date": "2026-05-26 (proposed)",
+      "scope": "Benchtop ≤500 ton HPDC; small parts ≤200 g (bracket, hinge, sensor housing). Single-cavity H13 die. AlSi9Mg0.3 HT-free baseline only. Vacuum-assist optional. 7 of 8 cells activate; igata_heat_treatment stays R2-gated (skip-HT path: trim_machining → part_attestation).",
+      "murukumoFleet": "naphtali + zebulun + joseph + levi + simeon (5 nodes; dan reserved R2 HT)",
+      "gate": "ADR-2605261215 (proposed) + Council Lv6+ ≥3 attestation baseline (silenIgataReview r1-benchtop-500ton-baseline) + 3-DID SME block (HPDC engineer + metallurgist + 危険物取扱主任者-equivalent) + equipment procurement protocol (second-hand revival preferred over new-build per §2(e))",
+      "exitToR2": "≥30 consecutive successful shots / material balance ≥0.90 / multi-cavity die design Council-attested / vacuum-assist subsystem Council-attested / Hibachi PoC firmware tested / Tatara PoC firmware tested / 30-day public comment / Annex-equivalent facility audit pass",
+      "r1MaterialBalanceInvariant": "≥0.80 (R3 G10 target = ≥0.95)",
+      "r1ActivatedCells": [
+        "igata_alloy_melt",
+        "igata_die_preparation",
+        "igata_shot_injection",
+        "igata_solidification_eject",
+        "igata_post_cast_qc",
+        "igata_trim_machining",
+        "igata_part_attestation"
+      ],
+      "r1DeferredCells": [
+        "igata_heat_treatment (R2 ADR-2605261230)"
+      ]
+    },
+    {
+      "phase": "R2",
+      "date": "post-R1",
+      "scope": "Pilot ≤2500 ton HPDC; medium parts ≤5 kg (suspension knuckle, control arm, transmission housing). Multi-cavity + full vacuum-assist.",
+      "murukumoFleet": "naphtali + zebulun + joseph + levi + simeon + dan (6 nodes)",
+      "gate": "ADR-2605261230 (reserved) + 30-day public comment + Annex-equivalent facility audit + 3-shot consistency batch + Hibachi + Tatara onboarded"
+    },
+    {
+      "phase": "R3",
+      "date": "post-R2",
+      "scope": "Community-scale ≤6000 ton HPDC; large structural parts ≤50 kg (vehicle cradle segment, subframe section, tatekata column casting, watatsumi 補強材 ≤200m class). Full structural certification (G11 + N7 audit gate).",
+      "murukumoFleet": "Full 10-node fleet",
+      "gate": "ADR-2605261245 (reserved) + 60-day public review + 法務 (建築基準法 + 道路運送車両法) 適合 audit + cross-actor wadachi + tatekata + watatsumi Council multi-domain vote"
+    }
+  ],
+  "crossActorSupply": [
+    {
+      "consumer": "wadachi",
+      "parts": "front/rear underbody, battery tray, motor housing",
+      "wirePhase": "R3 (G11 + N7 gate, structural cert audit)"
+    },
+    {
+      "consumer": "tatekata",
+      "parts": "aluminum 柱頭 / 梁継手 / curtain-wall structural / 装飾構造",
+      "wirePhase": "R2 (pilot OK)"
+    },
+    {
+      "consumer": "watatsumi",
+      "parts": "耐圧殻 ring section pour-cast 補強材 (主耐圧殻は steel/Ti forging 別 actor; ≤200m depth class only)",
+      "wirePhase": "R3 (depth class gate)"
+    },
+    {
+      "consumer": "silicon",
+      "parts": "fab equipment frame structural casting (bidirectional with silicon Wave 2 silicon_packaging)",
+      "wirePhase": "R2 (bidirectional)"
+    }
+  ],
+  "references": {
+    "adr": {
+      "master": "/90-docs/adr/2605261200-igata-megacasting-tier-b-actor-r0.md",
+      "r1": "/90-docs/adr/2605261215-igata-r1-benchtop-poc.md (reserved)",
+      "r2": "/90-docs/adr/2605261230-igata-r2-pilot-hpdc-2500ton.md (reserved)",
+      "r3": "/90-docs/adr/2605261245-igata-r3-community-scale-6000ton.md (reserved)"
+    },
+    "siblings": {
+      "kuniUmi": "/20-actors/kuni-umi/README.md",
+      "silicon": "/20-actors/silicon/README.md (naming convention: iwakura/fuigo/Funamori)",
+      "watatsumi": "/20-actors/watatsumi/README.md (YouTube methodology + military exclusion precedent)",
+      "yakushi": "/20-actors/yakushi/README.md (14 gates + 10 non-goals canonical pattern)",
+      "tatekata": "/20-actors/tatekata/README.md (Tier-B R0 scaffold pattern)",
+      "wadachi": "/20-actors/wadachi/README.md (Tier-B R0 phased-roadmap pattern)"
+    },
+    "witness": "/90-docs/adr/2605191524-transparent-force-swarm-broadcast-witness-quorum.md",
+    "charterRider": "/CHARTER-RIDER.md",
+    "methodologySource": "YouTube y0oF2UirEMk (IDRA Giga Press build-from-scratch documentary)"
+  },
+  "yirah": {
+    "adr": "2606112200",
+    "note": "yir'ah invariant-bundle declarations (ADR-2606112200 D4) — adopted only where meaningful for this actor's scope; each declaration is grounded in the cited existing gates.",
+    "declared": {
+      "append-only": "per-part partAttestation lineage, Ed25519 DID-bound (G4); process parameters fully disclosed (G3) — the casting's history appends and stays public",
+      "never-a-throne": "witness quorum ≥2 robot signers per partAttestation (G4) — no single-attestor seat; no proprietary closed alloys (G2)"
+    }
+  }
+}
