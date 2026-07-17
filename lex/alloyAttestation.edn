@@ -1,0 +1,75 @@
+{"lexicon" 1,
+ "id" "com.etzhayyim.igata.alloyAttestation",
+ "description"
+ "Aluminum-silicon alloy melt lot attestation. Composition, mass, source ingot provenance, G7 compliance scan results. Per ADR-2605261200.",
+ "defs"
+ {"main"
+  {"type" "record",
+   "record"
+   {"type" "object",
+    "properties"
+    {"meltCompletedAt" {"type" "string"},
+     "meltEnergyKwh"
+     {"type" "number",
+      "description" "G9: induction/electric only, accumulated kWh"},
+     "lotId" {"type" "string"},
+     "meltStartedAt" {"type" "string"},
+     "kwhPerKg"
+     {"type" "number", "description" "G9: ≤4 kWh/kg R3 invariant"},
+     "totalMassKg" {"type" "integer"},
+     "witnessRobotDids"
+     {"type" "array",
+      "items" {"type" "string"},
+      "minItems" 2,
+      "description" "G4 witness quorum: ≥2 robot Ed25519-signed"},
+     "composition"
+     {"type" "object",
+      "properties"
+      {"aluminumPercent" {"type" "number"},
+       "siliconPercent" {"type" "number"},
+       "magnesiumPercent" {"type" "number"},
+       "manganesePercent" {"type" "number"},
+       "ironPercent" {"type" "number"},
+       "strontiumPpm" {"type" "integer"},
+       "titaniumPpm" {"type" "integer"}},
+      "required" ["aluminumPercent" "siliconPercent"]},
+     "ingotProvenance"
+     {"type" "array",
+      "items" {"type" "string"},
+      "description"
+      "rawIngotIds chained back to Funamori marine import or domestic supplier attestation"},
+     "operatorDid" {"type" "string"},
+     "degassingH2ContentPpm" {"type" "number"},
+     "g7Scan"
+     {"type" "object",
+      "properties"
+      {"opcwScheduleScanPassed"
+       {"type" "boolean",
+        "description"
+        "G7: no OPCW Schedule compounds detected in ingot certs"},
+       "rohsScanPassed"
+       {"type" "boolean",
+        "description" "G7: Be/Pb/Cd/Hg below RoHS limits"},
+       "radioactiveScanPassed"
+       {"type" "boolean",
+        "description" "G7: U/Th below detection limit"}},
+      "required"
+      ["opcwScheduleScanPassed"
+       "rohsScanPassed"
+       "radioactiveScanPassed"]},
+     "recipeName"
+     {"type" "string",
+      "knownValues"
+      ["AlSi9Mg0.3-HT-free"
+       "AlSi7Mg0.3-T6-treatable"
+       "AlSi12-eutectic-thin-wall"]}},
+    "required"
+    ["lotId"
+     "meltStartedAt"
+     "totalMassKg"
+     "recipeName"
+     "composition"
+     "ingotProvenance"
+     "g7Scan"
+     "operatorDid"
+     "witnessRobotDids"]}}}}

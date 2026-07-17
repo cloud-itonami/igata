@@ -1,0 +1,74 @@
+{"lexicon" 1,
+ "id" "com.etzhayyim.igata.silenIgataReview",
+ "description"
+ "Council Lv6+ baseline review for igata R-phase activation gate. Parallel to yakushi silenPharmaReview + silicon silenForceReview. Per ADR-2605261200.",
+ "defs"
+ {"main"
+  {"type" "record",
+   "record"
+   {"type" "object",
+    "properties"
+    {"approvedDieMaterials"
+     {"type" "array", "items" {"type" "string"}},
+     "approvedAlloyRecipes"
+     {"type" "array", "items" {"type" "string"}},
+     "g13PublicFeedbackPeriod"
+     {"type" "object",
+      "properties"
+      {"startedAt" {"type" "string"},
+       "endedAt" {"type" "string"},
+       "commentCount" {"type" "integer"},
+       "objectionCount" {"type" "integer"}}},
+     "approvedRPhase"
+     {"type" "string", "knownValues" ["R1" "R2" "R3"]},
+     "reviewType"
+     {"type" "string",
+      "knownValues"
+      ["r1-benchtop-500ton-baseline"
+       "r2-pilot-2500ton-baseline"
+       "r2-multi-cavity-baseline"
+       "r2-vacuum-assist-baseline"
+       "r2-hibachi-onboard-baseline"
+       "r2-tatara-onboard-baseline"
+       "r3-community-6000ton-baseline"
+       "r3-cross-actor-wadachi-baseline"
+       "r3-cross-actor-tatekata-baseline"
+       "r3-cross-actor-watatsumi-baseline"
+       "r3-structural-cert-audit-baseline"
+       "g11-operator-attestation-update"
+       "g13-mesh-placement-public-feedback"]},
+     "reviewId" {"type" "string"},
+     "approvedClampingForceTons"
+     {"type" "integer", "description" "G1 invariant ≤6000 ton R0..R3"},
+     "supersededReviewCid" {"type" "string"},
+     "councilAttestationCount"
+     {"type" "integer",
+      "description" "Lv6+ supermajority threshold per ADR-2605192300"},
+     "verdict"
+     {"type" "string",
+      "knownValues"
+      ["approved" "approved-with-conditions" "rejected" "deferred"]},
+     "councilSeats"
+     {"type" "array", "items" {"type" "string"}, "minItems" 3},
+     "smeAttestations"
+     {"type" "object",
+      "properties"
+      {"hpdcEngineerDid" {"type" "string"},
+       "metallurgistDid" {"type" "string"},
+       "kikenbutsuOperatorDid"
+       {"type" "string",
+        "description" "G11: 危険物取扱主任者-equivalent for >500 ton"},
+       "xrayOperatorDid"
+       {"type" "string",
+        "description" "G11: 放射線取扱主任者 for R2+ X-ray CT"}}},
+     "decidedAt" {"type" "string"},
+     "approvedRoboticsClasses"
+     {"type" "array", "items" {"type" "string"}},
+     "verdictNotesCid" {"type" "string"}},
+    "required"
+    ["reviewId"
+     "reviewType"
+     "councilAttestationCount"
+     "councilSeats"
+     "verdict"
+     "decidedAt"]}}}}

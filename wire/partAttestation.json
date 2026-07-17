@@ -1,0 +1,75 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.igata.partAttestation",
+  "description": "Final part attestation with full lineage chain + IPFS-pinned photo + G10 material balance log. Per ADR-2605261200 G14.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "record": {
+        "type": "object",
+        "properties": {
+          "partId": {"type": "string"},
+          "partType": {"type": "string", "knownValues": [
+            "bracket-R1",
+            "hinge-R1",
+            "sensor-housing-R1",
+            "suspension-knuckle-R2",
+            "control-arm-R2",
+            "transmission-housing-R2",
+            "vehicle-cradle-segment-R3",
+            "subframe-section-R3",
+            "tatekata-column-casting-R2plus",
+            "watatsumi-ring-reinforcement-R3",
+            "silicon-fab-equipment-frame-R2"
+          ]},
+          "consumerActorDid": {"type": "string", "description": "wadachi / tatekata / watatsumi / silicon DID; null = internal stock"},
+          "finalMassKg": {"type": "number"},
+          "lineage": {
+            "type": "object",
+            "properties": {
+              "alloyAttestationCid": {"type": "string"},
+              "dieAttestationCid": {"type": "string"},
+              "castShotRecordCid": {"type": "string"},
+              "ejectedPartRecordCid": {"type": "string"},
+              "qcAttestationCid": {"type": "string"},
+              "trimmedPartRecordCid": {"type": "string"},
+              "heatTreatedRecordCid": {"type": "string"}
+            },
+            "required": ["alloyAttestationCid", "dieAttestationCid", "castShotRecordCid", "qcAttestationCid"]
+          },
+          "finalPhotoIpfsCid": {"type": "string", "description": "G14: IPFS-pinned final part photo (Tier D blob primitive per ADR-2605232400)"},
+          "materialBalance": {
+            "type": "object",
+            "properties": {
+              "meltInputMassKg": {"type": "number"},
+              "finalPartMassKg": {"type": "number"},
+              "spruceMassKg": {"type": "number"},
+              "runnerMassKg": {"type": "number"},
+              "flashMassKg": {"type": "number"},
+              "chipMassKg": {"type": "number"},
+              "rejectPartMassKg": {"type": "number"},
+              "dieSprayResidueMassKg": {"type": "number"},
+              "recoveryRatio": {"type": "number", "description": "G10 invariant: ≥0.95"}
+            },
+            "required": ["meltInputMassKg", "finalPartMassKg", "recoveryRatio"]
+          },
+          "htRecipeUsed": {"type": "string", "knownValues": ["HT-free", "T5", "T6"]},
+          "mechanicalProperties": {
+            "type": "object",
+            "properties": {
+              "yieldStrengthMpa": {"type": "integer"},
+              "ultimateTensileStrengthMpa": {"type": "integer"},
+              "elongationPercent": {"type": "number"},
+              "hardnessHv": {"type": "integer"}
+            }
+          },
+          "rPhase": {"type": "string", "knownValues": ["R1", "R2", "R3"]},
+          "attestedAt": {"type": "string"},
+          "witnessRobotDids": {"type": "array", "items": {"type": "string"}, "minItems": 2, "description": "G4: Mimi + Otete Ed25519"},
+          "operatorDid": {"type": "string"}
+        },
+        "required": ["partId", "partType", "finalMassKg", "lineage", "finalPhotoIpfsCid", "materialBalance", "rPhase", "attestedAt", "witnessRobotDids", "operatorDid"]
+      }
+    }
+  }
+}

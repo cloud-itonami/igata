@@ -10,7 +10,7 @@ aerospace/armor parts).
 | Lexicons | ✅ 5 under `com.etzhayyim.igata.*` (alloyAttestation / castShotRecord / dieAttestation / partAttestation / silenIgataReview) |
 | Cells | 🟡 8 path-reserved in `40-engine/.../cells/igata_*` (verify_ingot_provenance / induction_melt / …) |
 | Manifest | ✅ present (carries `igata:constitutionalGates` G1–G14) |
-| Tests | ✅ `methods/test_charter_gates.py` — **7 tests, green** (added 2026-06-16; previously NO dedicated test) — pins G6/G7/G4/G9/G8/G14/G11 schema gates; `./run_tests.sh` |
+| Tests | ✅ `test/igata/methods/test_charter_gates.cljc` and repository contracts — **9 tests / 50 assertions, green** — pins G6/G7/G4/G9/G8/G14/G11 schema gates; `bb run_tests.clj` |
 | Methods | ⛔ no offline engine yet (R1 benchtop 500-ton loop) |
 
 ## Charter gates pinned by the test (manifest igata:constitutionalGates G1–G14)

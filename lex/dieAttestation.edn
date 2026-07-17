@@ -1,0 +1,71 @@
+{"lexicon" 1,
+ "id" "com.etzhayyim.igata.dieAttestation",
+ "description"
+ "HPDC die attestation. Vendor-free CAD CID, machining history, thermal cycle count, life-cycle status. Per ADR-2605261200 G3 + G6.",
+ "defs"
+ {"main"
+  {"type" "record",
+   "record"
+   {"type" "object",
+    "properties"
+    {"dieDesignCid"
+     {"type" "string",
+      "description"
+      "Vendor-free CAD: FreeCAD .fcstd / OpenSCAD / Open CASCADE .step (G3 invariant)"},
+     "dieId" {"type" "string"},
+     "machinedAt" {"type" "string"},
+     "dieMaterial"
+     {"type" "string",
+      "knownValues"
+      ["H13-hot-work-tool-steel" "anviloy-1150-W-base-R3+"]},
+     "lubricantSprayAmountMl" {"type" "number"},
+     "lastCrackInspection"
+     {"type" "object",
+      "properties"
+      {"inspectedAt" {"type" "string"},
+       "method"
+       {"type" "string",
+        "knownValues"
+        ["dye-penetrant" "magnetic-particle" "ultrasonic"]},
+       "crackDetected" {"type" "boolean"},
+       "crackLocations" {"type" "array", "items" {"type" "string"}},
+       "inspectorMimiDid" {"type" "string"}}},
+     "witnessRobotDids"
+     {"type" "array", "items" {"type" "string"}, "minItems" 2},
+     "manufacturerDid"
+     {"type" "string",
+      "description" "tsukuru manufacturer DID per ADR-2605242545"},
+     "thermalProfileCid"
+     {"type" "string",
+      "description" "Thermal fatigue zone heat-map CID"},
+     "lubricantFormulationG7"
+     {"type" "object",
+      "properties"
+      {"waterBased"
+       {"type" "boolean",
+        "description" "G7: water-based only (no chlorinated solvent)"},
+       "pfasFree"
+       {"type" "boolean",
+        "description" "Charter Rider §2(g): no PFAS"},
+       "compositionCid"
+       {"type" "string",
+        "description" "Full formulation disclosure CID"}},
+      "required" ["waterBased" "pfasFree"]},
+     "dieSurfaceTempC"
+     {"type" "integer",
+      "description" "Preheat target 180-260°C for Al-Si"},
+     "lubricantBatchId" {"type" "string"},
+     "cyclesCompleted" {"type" "integer"},
+     "cavityCount" {"type" "integer"},
+     "cyclesDesignLimit"
+     {"type" "integer", "description" "Typical H13 = 100k cycles"}},
+    "required"
+    ["dieId"
+     "dieDesignCid"
+     "dieMaterial"
+     "cavityCount"
+     "manufacturerDid"
+     "cyclesCompleted"
+     "lubricantBatchId"
+     "lubricantFormulationG7"
+     "witnessRobotDids"]}}}}

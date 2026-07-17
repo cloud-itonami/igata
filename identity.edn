@@ -1,0 +1,14 @@
+{:identity/did "did:web:etzhayyim.com:actor:igata"
+ :identity/also-known-as ["at://igata.etzhayyim.com"
+                          "https://github.com/etzhayyim/com-etzhayyim-igata"
+                          "rad:bafkreiag7ruwosiu6qqjl7bqjensjwgnj2ju7u2v7fdtjusfytnu3pygia"
+                          "did:web:etzhayyim.github.io:com-etzhayyim-igata"]
+ :identity/services
+ [{:service/id "did:web:etzhayyim.com:actor:igata#atproto_pds"
+   :service/type "AtprotoPersonalDataServer"
+   :service/endpoint "https://pds.etzhayyim.com"}
+  {:service/id "did:web:etzhayyim.com:actor:igata#aozora"
+   :service/type "AozoraAppView"
+   :service/endpoint "https://aozora.app"}]
+ :identity/wire-artifact ".well-known/did.json"
+ :identity/wire-format :did-json}

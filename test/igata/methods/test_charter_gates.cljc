@@ -3,14 +3,12 @@
   (:require [clojure.test :refer [deftest is run-tests]]
             [clojure.set :as set]
             [clojure.string :as str]
-            [cheshire.core :as json]))
+            [clojure.edn :as edn]))
 
 (def ^:private here (.getParentFile (java.io.File. ^String *file*)))
-(def ^:private actor-dir (.getParentFile here))
-(def ^:private actor-name (.getName actor-dir))
-(def ^:private root (.. actor-dir getParentFile getParentFile))
-(def ^:private lexdir (java.io.File. root (str "00-contracts/lexicons/com/etzhayyim/" actor-name)))
-(defn- lex [name] (json/parse-string (slurp (java.io.File. lexdir (str name ".json")))))
+(def ^:private root (.. here getParentFile getParentFile getParentFile))
+(def ^:private lexdir (java.io.File. root "lex"))
+(defn- lex [name] (edn/read-string (slurp (java.io.File. lexdir (str name ".edn")))))
 
 (def ^:private military-tokens
   ["military" "armor" "armour" "fuselage" "firearm" "weapon"

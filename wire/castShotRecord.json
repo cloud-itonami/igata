@@ -1,0 +1,59 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.igata.castShotRecord",
+  "description": "Per-shot HPDC injection profile @ 1 kHz. G1 clamping force invariant + G8 replay determinism enforced. Per ADR-2605261200.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "record": {
+        "type": "object",
+        "properties": {
+          "shotId": {"type": "string"},
+          "machineId": {"type": "string"},
+          "alloyLotId": {"type": "string", "description": "Foreign key to alloyAttestation.lotId"},
+          "dieId": {"type": "string", "description": "Foreign key to dieAttestation.dieId"},
+          "shotStartedAt": {"type": "string"},
+          "clampingForceTons": {"type": "integer", "description": "G1 invariant: ≤6000 ton R0..R3"},
+          "vacuumAssistEnabled": {"type": "boolean"},
+          "shotProfile": {
+            "type": "object",
+            "properties": {
+              "slowPhase": {
+                "type": "object",
+                "properties": {
+                  "velocityMs": {"type": "number", "description": "0.1-0.3 m/s typical Al-Si"},
+                  "durationMs": {"type": "integer"}
+                },
+                "required": ["velocityMs", "durationMs"]
+              },
+              "fastPhase": {
+                "type": "object",
+                "properties": {
+                  "velocityMs": {"type": "number", "description": "2-6 m/s typical"},
+                  "durationMs": {"type": "integer"},
+                  "gateVelocityMs": {"type": "number"}
+                },
+                "required": ["velocityMs", "durationMs"]
+              },
+              "intensificationPhase": {
+                "type": "object",
+                "properties": {
+                  "pressureMpa": {"type": "integer", "description": "80-120 MPa typical structural Al-Si"},
+                  "holdDurationMs": {"type": "integer"}
+                },
+                "required": ["pressureMpa", "holdDurationMs"]
+              }
+            },
+            "required": ["slowPhase", "fastPhase", "intensificationPhase"]
+          },
+          "sensorStreamCid": {"type": "string", "description": "G8 invariant: full @ 1 kHz multi-channel log CID (position + velocity + pressure + die temp + vacuum if enabled). WASM state-machine sealed."},
+          "outcome": {"type": "string", "knownValues": ["pass", "reject", "anomaly", "scrap-recovery-route"]},
+          "rejectReasonCid": {"type": "string"},
+          "operatorDid": {"type": "string", "description": "G11: 危険物取扱主任者-equivalent for >500 ton"},
+          "witnessRobotDids": {"type": "array", "items": {"type": "string"}, "minItems": 2}
+        },
+        "required": ["shotId", "machineId", "alloyLotId", "dieId", "shotStartedAt", "clampingForceTons", "shotProfile", "sensorStreamCid", "outcome", "operatorDid", "witnessRobotDids"]
+      }
+    }
+  }
+}

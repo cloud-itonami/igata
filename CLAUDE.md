@@ -1,4 +1,4 @@
-# 20-actors/igata — CLAUDE.md
+# com-etzhayyim-igata — CLAUDE.md
 
 ## Identity
 
@@ -41,7 +41,7 @@ Each cell = 1 Pregel graph with super-step semantics (4–5 LangGraph nodes per 
 
 ## Constitutional Gates (G1–G14)
 
-**IMMUTABLE in R0..R3.** Stored in `manifest.jsonld` under `igata:constitutionalGates` array. Changes require Council Lv6+ supermajority + new ADR.
+**IMMUTABLE in R0..R3.** Stored in canonical `manifest.edn` under `:igata/constitutional-gates`. Changes require Council Lv6+ supermajority + new ADR.
 
 See `ADR-2605261200` for full definitions. Key enforcement:
 
@@ -198,7 +198,7 @@ See `ADR-2605261200` for full definitions. Key enforcement:
 
 **Deployment**:
 ```bash
-cd 20-actors/igata
+cd orgs/etzhayyim/com-etzhayyim-igata
 e7m actor deploy .
 ```
 
@@ -209,7 +209,7 @@ e7m actor deploy .
 **Smoke test**: Verify that all 8 cells import without exception (Python `__init__.py` imports succeed, but `RuntimeError` raised in `cell.py` body on Council-gate check):
 
 ```bash
-cd 20-actors/igata
+cd orgs/etzhayyim/com-etzhayyim-igata
 python -c "from kotodama.cells.igata_alloy_melt import IgataAlloyMeltCell" 2>&1 | grep -q RuntimeError && echo "✓ R0 gate active"
 python -c "from kotodama.cells.igata_die_preparation import IgataDiePreparationCell" 2>&1 | grep -q RuntimeError && echo "✓ R0 gate active"
 # ... 6 more
@@ -230,7 +230,7 @@ R0 = declaration only. Actual lexicon record flow activates at consumer's R-phas
 
 ## Related Files
 
-- `/20-actors/igata/manifest.jsonld` — DID + cell registry + constitutional gates
+- `manifest.edn` — DID + cell registry + constitutional gates
 - `/90-docs/adr/2605261200-igata-megacasting-tier-b-actor-r0.md` — Full R0 master ADR
 - `/20-actors/silicon/README.md` — Sibling Tier-B (Funamori marine inheritance + iwakura/fuigo naming root)
 - `/20-actors/watatsumi/README.md` — Sibling Tier-B (YouTube methodology adoption + military exclusion precedent)

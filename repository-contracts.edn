@@ -1,0 +1,11 @@
+{:schema-version 1
+ :repository "etzhayyim/com-etzhayyim-igata"
+ :classification :actor
+ :canonical-actor-metadata "manifest.edn"
+ :canonical-identity-metadata "identity.edn"
+ :canonical-lexicons "lex"
+ :wire-lexicons "wire"
+ :canonical-data-format :edn
+ :dependencies []
+ :external-wire-formats #{:did-json :atproto-lexicon-json}
+ :tests {:command ["bb" "run_tests.clj"]}}
