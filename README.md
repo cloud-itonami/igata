@@ -95,6 +95,16 @@ com.etzhayyim.igata.{
 }
 ```
 
+## Migration Boundary
+
+`kotoba-lang/kotodama-cells/igata_*` is legacy source
+during migration. New igata cell orchestration belongs in
+`src/igata/murakumo.cljc` as pure `.cljc` actor plans. The plans preserve R0
+scaffold behavior by emitting no write effects until Council, silen-igata, HPDC,
+metallurgist, operator, material, and R-phase attestations are supplied. Host
+placement remains in `kotoba-lang/murakumo`; AT Protocol/PDS surfaces remain in
+`gftdcojp/app-aozora`.
+
 ## Cross-Actor Supply
 
 | Consumer | igata supplies | Wire (R2+) |
