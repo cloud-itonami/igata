@@ -1,8 +1,0 @@
-{:paths ["src" "test"]
- :tasks
- {:requires ([clojure.test :as test]
-             [igata.murakumo-test])
-  test {:doc "Run focused igata actor tests"
-        :task (let [result (test/run-tests 'igata.murakumo-test)]
-                (when (pos? (+ (:fail result) (:error result)))
-                  (System/exit 1)))}}}
