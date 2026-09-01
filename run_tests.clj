@@ -8,6 +8,7 @@
 (def suites '[igata.methods.test-charter-gates igata.methods.test-magnesium-hpdc
               igata.methods.test-magnesium-trim-qc
               igata.methods.test-magnesium-melt-handling
+              igata.methods.test-magnesium-solidify-eject
               igata.repository-contract-test])
 (apply require suites)
 (let [{:keys [fail error]} (apply t/run-tests suites)]
