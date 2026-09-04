@@ -10,6 +10,7 @@
               igata.methods.test-magnesium-melt-handling
               igata.methods.test-magnesium-solidify-eject
               igata.methods.test-magnesium-ndt-inspection
+              igata.methods.test-magnesium-part-attestation
               igata.methods.test-magnesium-heat-treatment
               igata.methods.test-magnesium-melt-stock
               igata.methods.test-magnesium-cartridge-handling
