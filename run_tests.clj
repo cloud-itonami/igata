@@ -12,6 +12,7 @@
               igata.methods.test-magnesium-ndt-inspection
               igata.methods.test-magnesium-heat-treatment
               igata.methods.test-magnesium-melt-stock
+              igata.methods.test-magnesium-cartridge-handling
               igata.repository-contract-test])
 (apply require suites)
 (let [{:keys [fail error]} (apply t/run-tests suites)]
