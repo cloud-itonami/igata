@@ -9,6 +9,7 @@
               igata.methods.test-magnesium-trim-qc
               igata.methods.test-magnesium-melt-handling
               igata.methods.test-magnesium-solidify-eject
+              igata.methods.test-magnesium-heat-treatment
               igata.methods.test-magnesium-melt-stock
               igata.repository-contract-test])
 (apply require suites)
