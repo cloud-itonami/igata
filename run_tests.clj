@@ -14,9 +14,8 @@
               igata.methods.test-magnesium-heat-treatment
               igata.methods.test-magnesium-melt-stock
               igata.methods.test-magnesium-cartridge-handling
+              igata.methods.test-magnesium-die-prep
               igata.repository-contract-test])
 (apply require suites)
 (let [{:keys [fail error]} (apply t/run-tests suites)]
   (System/exit (if (zero? (+ fail error)) 0 1)))
-              igata.methods.test-magnesium-shot-replay
-              igata.methods.test-magnesium-die-preparation
