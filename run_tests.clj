@@ -18,3 +18,4 @@
 (apply require suites)
 (let [{:keys [fail error]} (apply t/run-tests suites)]
   (System/exit (if (zero? (+ fail error)) 0 1)))
+              igata.methods.test-magnesium-shot-replay
