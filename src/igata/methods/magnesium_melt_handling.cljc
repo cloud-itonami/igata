@@ -19,8 +19,13 @@
     - melt handling over molten magnesium is hazardous: a named human approval
       with the matching scope is required; absence defers, never approves"
   (:require [clojure.set :as set]
-            [clojure.string :as str])
-  (:import (java.time Instant)))
+            [clojure.string :as str]))
+
+(defn- now-str
+  "Wall-clock ISO-8601 instant string, portable across bb (JVM) and nbb
+  (JS). Never used as a safety input — audit attribution only."
+  []
+  (str #?(:clj (java.time.Instant/now) :cljs (js/Date.))))
 
 (def ^:private min-witness-robots 2)
 
@@ -44,14 +49,16 @@
 
 (defn- present? [x]
   (or (some-> x str/trim not-empty)
-      (and (number? x) (not (Double/isNaN (double x))))))
+      (and (number? x)
+           (not #?(:clj (Double/isNaN (double x))
+                   :cljs (js/isNaN x))))))
 
 (defn- audit-record [activity-id outcome refusal gates effect]
   {:audit/id (str "audit-" activity-id)
    :audit/outcome outcome
    :audit/refusal refusal
    :audit/gates-checked (vec (distinct gates))
-   :audit/approved-at (str (Instant/now))
+   :audit/approved-at (now-str)
    :audit/effect effect
    :audit/bot-commanded-equipment false})
 
