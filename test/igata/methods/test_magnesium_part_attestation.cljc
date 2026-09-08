@@ -1,7 +1,7 @@
 (ns igata.methods.test-magnesium-part-attestation
   "Focused tests for the part-attestation decision contract slice (activity
   -> decision -> effect -> audit). Pure; deterministic; stdlib only."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is testing]]
             [igata.methods.magnesium-part-attestation :as pa]))
 

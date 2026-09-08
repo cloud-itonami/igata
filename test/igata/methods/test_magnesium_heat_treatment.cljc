@@ -1,7 +1,7 @@
 (ns igata.methods.test-magnesium-heat-treatment
   "Focused tests for the heat-treatment cell decision contract (activity ->
   decision -> effect -> audit). Pure; deterministic; stdlib only."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is testing run-tests]]
             [igata.methods.magnesium-heat-treatment :as ht]))
 

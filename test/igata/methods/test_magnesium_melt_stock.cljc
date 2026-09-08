@@ -1,7 +1,7 @@
 (ns igata.methods.test-magnesium-melt-stock
   "Focused tests for the melt-stock screening & revert routing decision
   contract. Pure; deterministic; stdlib only."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is testing]]
             [igata.methods.magnesium-melt-stock :as ms]))
 

@@ -1,7 +1,7 @@
 (ns igata.methods.test-magnesium-melt-handling
   "Focused tests for the melt-furnace tending and dosing-transfer decision
   contract. Pure; deterministic; stdlib only."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is testing run-tests]]
             [igata.methods.magnesium-melt-handling :as mh]))
 
