@@ -38,7 +38,7 @@
   yield, price, or certification.
 
   Pure fns; deterministic; keyword-keyed records; stdlib only."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ── constants ──────────────────────────────────────────────────────────────
 

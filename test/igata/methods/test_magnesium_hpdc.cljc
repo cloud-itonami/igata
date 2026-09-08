@@ -1,7 +1,7 @@
 (ns igata.methods.test-magnesium-hpdc
   "Focused tests for the magnesium-HPDC cell decision contract (activity ->
   decision -> effect -> audit). Pure; deterministic; stdlib only."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is testing run-tests]]
             [igata.methods.magnesium-hpdc :as mg]))
 

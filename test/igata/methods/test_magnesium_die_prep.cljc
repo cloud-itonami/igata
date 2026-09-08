@@ -1,7 +1,7 @@
 (ns igata.methods.test-magnesium-die-prep
   "Focused tests for the magnesium-HPDC die-preparation decision contract
   (activity -> decision -> effect -> audit). Pure; deterministic; stdlib only."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is testing run-tests]]
             [igata.methods.magnesium-die-prep :as dp]))
 

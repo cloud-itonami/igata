@@ -33,7 +33,7 @@
       water-contact hazards: a named human approval with the matching scope is
       required; absence defers, never approves"
   (:require [clojure.set :as set]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 (defn- now-str
   "Wall-clock ISO-8601 instant string, portable across bb (JVM) and nbb
