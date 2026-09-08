@@ -14,6 +14,7 @@
               igata.methods.test-magnesium-heat-treatment
               igata.methods.test-magnesium-melt-stock
               igata.methods.test-magnesium-cartridge-handling
+              igata.methods.test-magnesium-cartridge-eol
               igata.methods.test-magnesium-die-prep
               igata.repository-contract-test])
 (apply require suites)
