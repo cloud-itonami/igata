@@ -2,7 +2,7 @@
   "igata — constitutional-gate conformance tests. Substrate-native Clojure (ADR-2606160842); 1:1 port of pruned test_charter_gates.py."
   (:require [clojure.test :refer [deftest is run-tests]]
             [clojure.set :as set]
-            [kotoba.lang.text :as str]
+            [clojure.string :as str]
             [clojure.edn :as edn]))
 
 (def ^:private here (.getParentFile (java.io.File. ^String *file*)))
@@ -33,7 +33,7 @@
 ;; ── G6 / N2 — no military / aerospace / armor part type ──
 (deftest test-g6-no-military-part-type
   (let [parts (known (lex "partAttestation") "partType")
-        low (set (map str/lower parts))]
+        low (set (map str/lower-case parts))]
     (is (seq parts) "partAttestation must enumerate partType")
     (doseq [tok military-tokens]
       (is (not (some #(str/includes? % tok) low))

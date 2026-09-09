@@ -35,7 +35,7 @@
 
   Pure fns; deterministic; keyword-keyed records; stdlib only."
   (:require [clojure.set :as set]
-            [kotoba.lang.text :as str]))
+            [clojure.string :as str]))
 
 ;; ── constants ──────────────────────────────────────────────────────────────
 
@@ -101,7 +101,7 @@
   (let [activity-id (get req :activity/id "")
         gates (atom [])
         note (fn [g] (swap! gates conj g))
-        cooling-medium (str/lower (str (get-in req [:cooling :medium])))
+        cooling-medium (str/lower-case (str (get-in req [:cooling :medium])))
         refusal
         (cond
           (not (present? activity-id))

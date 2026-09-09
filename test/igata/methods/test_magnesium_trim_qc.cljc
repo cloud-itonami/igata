@@ -1,7 +1,7 @@
 (ns igata.methods.test-magnesium-trim-qc
   "Focused tests for the trim-and-QC decision contract slice (activity ->
   decision -> effect -> audit). Pure; deterministic; stdlib only."
-  (:require [kotoba.lang.text :as str]
+  (:require [clojure.string :as str]
             [clojure.test :refer [deftest is testing]]
             [igata.methods.magnesium-trim-qc :as tq]))
 
