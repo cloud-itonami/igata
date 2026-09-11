@@ -7,7 +7,7 @@
 
   Cell input -> output per the README cell table: castShotRecord ->
   ejectedPartRecord. This module adds the executable decision layer between
-  the melt-and-shot contract (src/igata/methods/magnesium_hpdc.cljc) and the
+  the melt-and-shot contract (src/igata/methods/magnesium_hpdc.cljk) and the
   post-cast QC contract: it models activity -> decision -> effect -> audit for
   solidification monitoring and part ejection on a magnesium (AZ91D / AM50 /
   AM60 class) shot, plus the traceability handoff record that closes the
