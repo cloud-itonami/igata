@@ -8,4 +8,4 @@
  :canonical-data-format :edn
  :dependencies []
  :external-wire-formats #{:did-json :atproto-lexicon-json}
- :tests {:command ["bb" "run_tests.clj"]}}
+ :tests {:command ["bb" "run_tests.cljk"]}}
