@@ -2,7 +2,7 @@
   "Focused tests for the NDT inspection decision contract slice (activity ->
   decision -> effect -> audit). Pure; deterministic; stdlib only."
   (:require [clojure.string :as str]
-            [clojure.test :refer [deftest is testing]]
+            [kotoba.test :refer [deftest is testing]]
             [igata.methods.magnesium-ndt-inspection :as ndt]))
 
 (def ^:private valid-req

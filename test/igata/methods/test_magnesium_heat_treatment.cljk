@@ -2,7 +2,7 @@
   "Focused tests for the heat-treatment cell decision contract (activity ->
   decision -> effect -> audit). Pure; deterministic; stdlib only."
   (:require [clojure.string :as str]
-            [clojure.test :refer [deftest is testing run-tests]]
+            [kotoba.test :refer [deftest is testing run-tests]]
             [igata.methods.magnesium-heat-treatment :as ht]))
 
 (def ^:private valid-req

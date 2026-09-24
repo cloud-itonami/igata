@@ -1,7 +1,7 @@
 (ns igata.methods.test-magnesium-cartridge-handling
   "Focused tests for the inert MgH2 cartridge handling decision contract
   (activity -> decision -> effect -> audit). Pure; deterministic; stdlib only."
-  (:require [clojure.test :refer [deftest is testing run-tests]]
+  (:require [kotoba.test :refer [deftest is testing run-tests]]
             [igata.methods.magnesium-cartridge-handling :as ch]))
 
 (def ^:private valid-req
