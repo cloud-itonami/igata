@@ -1,6 +1,6 @@
 (ns igata.repository-contract-test
   (:require [cheshire.core :as json]
-            [clojure.edn :as edn]
+            [kotoba.lang.edn :as edn]
             [clojure.java.io :as io]
             [kotoba.test :refer [deftest is]]))
 (defn- read-edn [path] (edn/read-string (slurp path)))
