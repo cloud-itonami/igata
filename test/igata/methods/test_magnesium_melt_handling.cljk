@@ -2,7 +2,7 @@
   "Focused tests for the melt-furnace tending and dosing-transfer decision
   contract. Pure; deterministic; stdlib only."
   (:require [clojure.string :as str]
-            [clojure.test :refer [deftest is testing run-tests]]
+            [kotoba.test :refer [deftest is testing run-tests]]
             [igata.methods.magnesium-melt-handling :as mh]))
 
 (def ^:private valid-tending

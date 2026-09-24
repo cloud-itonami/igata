@@ -2,7 +2,7 @@
   "Focused tests for the melt-stock screening & revert routing decision
   contract. Pure; deterministic; stdlib only."
   (:require [clojure.string :as str]
-            [clojure.test :refer [deftest is testing]]
+            [kotoba.test :refer [deftest is testing]]
             [igata.methods.magnesium-melt-stock :as ms]))
 
 (def ^:private valid-screening

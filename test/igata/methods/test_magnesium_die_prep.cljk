@@ -2,7 +2,7 @@
   "Focused tests for the magnesium-HPDC die-preparation decision contract
   (activity -> decision -> effect -> audit). Pure; deterministic; stdlib only."
   (:require [clojure.string :as str]
-            [clojure.test :refer [deftest is testing run-tests]]
+            [kotoba.test :refer [deftest is testing run-tests]]
             [igata.methods.magnesium-die-prep :as dp]))
 
 (def ^:private valid-req

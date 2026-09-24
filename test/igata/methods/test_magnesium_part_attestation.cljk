@@ -2,7 +2,7 @@
   "Focused tests for the part-attestation decision contract slice (activity
   -> decision -> effect -> audit). Pure; deterministic; stdlib only."
   (:require [clojure.string :as str]
-            [clojure.test :refer [deftest is testing]]
+            [kotoba.test :refer [deftest is testing]]
             [igata.methods.magnesium-part-attestation :as pa]))
 
 (def ^:private valid-req

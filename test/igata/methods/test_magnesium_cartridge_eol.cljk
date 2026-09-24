@@ -2,7 +2,7 @@
   "Focused tests for the spent MgH2 cartridge end-of-life / recovery decision
   contract (activity -> decision -> effect -> audit). Pure; deterministic;
   stdlib only."
-  (:require [clojure.test :refer [deftest is testing run-tests]]
+  (:require [kotoba.test :refer [deftest is testing run-tests]]
             [igata.methods.magnesium-cartridge-eol :as eol]))
 
 (def ^:private valid-req
