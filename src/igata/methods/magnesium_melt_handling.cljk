@@ -19,7 +19,7 @@
     - melt handling over molten magnesium is hazardous: a named human approval
       with the matching scope is required; absence defers, never approves"
   (:require [clojure.set :as set]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 (defn- now-str
   "Wall-clock ISO-8601 instant string, portable across bb (JVM) and nbb
@@ -170,7 +170,7 @@
               "safety: molten magnesium requires a declared inert-class cover
                gas with a measured flow; air-exposed melt is refused")
 
-          (str/includes? (str/lower-case (str (get cover-gas :agent))) "water")
+          (str/includes? (str/lower (str (get cover-gas :agent))) "water")
           (do (note :cover-gas-not-water-based)
               "safety: water-based atmosphere over molten magnesium is refused
                outright (explosive contact hazard)")

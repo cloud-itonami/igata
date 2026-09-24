@@ -25,7 +25,7 @@
 
   Pure fns; deterministic; keyword-keyed records; stdlib only."
   (:require [clojure.set :as set]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 ;; ── constants ──────────────────────────────────────────────────────────────
 
@@ -114,7 +114,7 @@
           (do (note :cover-gas-declared-and-measured)
               "safety: molten magnesium requires a declared inert-class cover gas with a measured flow; air-exposed melt is refused")
 
-          (str/includes? (str/lower-case (str (get-in req [:cover-gas :agent]))) "water")
+          (str/includes? (str/lower (str (get-in req [:cover-gas :agent]))) "water")
           (do (note :cover-gas-not-water-based)
               "safety: water-based atmosphere over molten magnesium is refused outright (explosive contact hazard)")
 
