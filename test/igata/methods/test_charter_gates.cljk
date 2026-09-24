@@ -3,7 +3,7 @@
   (:require [kotoba.test :refer [deftest is run-tests]]
             [clojure.set :as set]
             [clojure.string :as str]
-            [clojure.edn :as edn]))
+            [kotoba.lang.edn :as edn]))
 
 (def ^:private here (.getParentFile (java.io.File. ^String *file*)))
 (def ^:private root (.. here getParentFile getParentFile getParentFile))
