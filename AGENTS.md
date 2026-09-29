@@ -1,4 +1,4 @@
-# com-etzhayyim-igata — CLAUDE.md
+# com-etzhayyim-igata — AGENTS.md
 
 ## Identity
 
@@ -235,5 +235,5 @@ R0 = declaration only. Actual lexicon record flow activates at consumer's R-phas
 - `/20-actors/silicon/README.md` — Sibling Tier-B (Funamori marine inheritance + iwakura/fuigo naming root)
 - `/20-actors/watatsumi/README.md` — Sibling Tier-B (YouTube methodology adoption + military exclusion precedent)
 - `/20-actors/yakushi/README.md` — Sibling Tier-B (14 gates + 10 non-goals canonical pattern)
-- `/CLAUDE.md` — Status table row 45 (igata, post-watatsumi)
+- `/AGENTS.md` — Status table row 45 (igata, post-watatsumi)
 - `/CHARTER-RIDER.md` — §2(a) weapons, §2(e) anti-gatekeeping, §2(g) sustainability, §2(h) circular economy

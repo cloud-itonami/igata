@@ -9,7 +9,7 @@
   CMM equipment class (:xray-ct-and-cmm in the scope's
   :wiki-equipment-classes) — the internal-defect gate the QC disposition in
   the trim slice records evidence for. Robot attribution: Mimi
-  (dimensional + CT metrology) per CLAUDE.md.
+  (dimensional + CT metrology) per AGENTS.md.
 
   Models activity -> decision -> effect -> audit for an X-ray/CT porosity
   scan + CMM dimensional scan on a trimmed magnesium part. The bot may
