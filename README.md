@@ -118,4 +118,4 @@ com.etzhayyim.igata.{
 - `/20-actors/silicon/README.md` — Sibling Tier-B (Funamori marine inheritance + naming convention)
 - `/20-actors/watatsumi/README.md` — Sibling Tier-B (YouTube methodology + military exclusion precedent)
 - `/CHARTER-RIDER.md` — §2(a) weapons + §2(e) anti-gatekeeping + §2(g) sustainability + §2(h) circular economy
-- `/CLAUDE.md` — Religious-corp status table
+- `/AGENTS.md` — Religious-corp status table
